@@ -64,6 +64,7 @@ def hessian_inverse(hes):
 def newton_raphson(x0, position, z, n_iter):
     x = x0
     while n_iter > 0:
+        print(hessian_inverse(hessian(x, position, z)))
         x = x - hessian_inverse(hessian(x, position, z)).dot(gradient(x, position).T).T
         n_iter -= 1
     return x
